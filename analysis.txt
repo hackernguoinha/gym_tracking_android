@@ -1,0 +1,44 @@
+- Trang chủ
+	+ Hiển thị biểu đồ tập luyện trong tháng (tỉ lệ số ngày tập trong tháng)
+	+ Số lượng các nhóm cơ tập trong tháng
+	+ Hiển thị nhịp tim trung bình
+	+ Số bước chân trung bình
+	+ Ngày mai tập gì
+- Trang hiển thị lịch để lưu lịch tập của tháng, lưu cân nặng, chiều cao
+- Cài đặt: 
+	+ on/off -> Tính năng chạy ngầm để thu thập dữ liệu nhịp tim, bước chân, calo
+	+ on/off -> Tính năng nhắc nhỡ tập ngày hôm đó
+	+ Trang thêm các nhóm cơ
+	+ Trang thêm các bài tập
+	
+Nâng cao: 
+	+ AI gợi ý tập luyện
+	+ Đồng bộ dữ liệu với google fit
+	
+	
+Database:
+- Health-Tracking
+	+ Heart-rate-average (số)
+	+ Steps (số)
+	+ Calories (số)
+- Calendar-Exercise
+	+ date (ngày tháng năm)
+	+ time (giờ)
+	+ Note (text)
+	+ exercise (danh sách id Muscle-Group)
+- Exercise
+	+ Picture
+	+ Note
+	+ id Muscle-Group
+	+ status
+- Muscle-Group
+	+ Picture
+	+ Note
+	+ status
+- App-Status
+	+ Height
+	+ Weight
+	+ Enable notification
+	+ Time notification
+	+ Enable sound notification
+	+ Enable read data healthy
