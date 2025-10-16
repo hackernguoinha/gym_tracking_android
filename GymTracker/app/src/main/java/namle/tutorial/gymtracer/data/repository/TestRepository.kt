@@ -12,7 +12,6 @@ class TestRepository @Inject constructor(private val testDao: TestDao) {
         testDao.insertTest(test)
     }
 
-    suspend fun getAllTest(): List<TestEntity>{
-        return testDao.getAllTest()
-    }
+    fun getAllTest()= testDao.getAllTest()
+
 }

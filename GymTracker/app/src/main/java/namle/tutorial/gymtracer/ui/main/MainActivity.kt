@@ -18,6 +18,12 @@ class MainActivity : AppCompatActivity() {
         Log.d("MainActivity", "----------test--------------")
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        viewModel.getAllTest().observe(this) { list ->
+            val displayText = list.joinToString(separator = "") { test ->
+                "\nID: ${test.id}, Name: ${test.name}"
+            }
+            binding.info.text = displayText
+        }
 
         binding.button.setOnClickListener {
             val name = binding.editTextText.text.toString()

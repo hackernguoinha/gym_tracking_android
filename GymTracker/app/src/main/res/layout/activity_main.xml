@@ -7,24 +7,37 @@
     android:layout_height="match_parent"
     tools:context=".ui.main.MainActivity">
 
-    <EditText
-        android:id="@+id/editTextText"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="text"
-        android:text="Name"
-        tools:layout_editor_absoluteX="92dp"
-        tools:layout_editor_absoluteY="179dp"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="MissingConstraints"
+        android:orientation="vertical">
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Button"
-        tools:layout_editor_absoluteX="131dp"
-        tools:layout_editor_absoluteY="269dp"
-        tools:ignore="MissingConstraints" />
+        <EditText
+            android:id="@+id/editTextText"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="text"
+            android:text="Name"
+            tools:layout_editor_absoluteX="92dp"
+            tools:layout_editor_absoluteY="179dp"
+            tools:ignore="MissingConstraints" />
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Button"
+            tools:layout_editor_absoluteX="131dp"
+            tools:layout_editor_absoluteY="269dp"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/info"/>
+    </LinearLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
