@@ -8,7 +8,8 @@ import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import namle.tutorial.gymtracer.data.local.AppDatabase
-import namle.tutorial.gymtracer.data.local.TestDao
+import namle.tutorial.gymtracer.data.local.dao.ExerciseDao
+import namle.tutorial.gymtracer.data.local.dao.TestDao
 import javax.inject.Singleton
 
 @Module
@@ -22,4 +23,6 @@ object AppModule {
 
     @Provides
     fun provideTestDao(db: AppDatabase): TestDao = db.testDao()
+    @Provides
+    fun provideExerciseDao(db: AppDatabase): ExerciseDao = db.exerciseDao()
 }

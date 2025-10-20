@@ -1,4 +1,4 @@
-package namle.tutorial.gymtracer.ui.main
+package namle.tutorial.gymtracer.ui
 
 import android.os.Bundle
 import android.util.Log
@@ -7,6 +7,7 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import dagger.hilt.android.AndroidEntryPoint
 import namle.tutorial.gymtracer.databinding.ActivityMainBinding
+import namle.tutorial.gymtracer.viewmodel.MainViewModel
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {

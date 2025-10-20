@@ -1,4 +1,4 @@
-package namle.tutorial.gymtracer.data.local
+package namle.tutorial.gymtracer.data.local.entity
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

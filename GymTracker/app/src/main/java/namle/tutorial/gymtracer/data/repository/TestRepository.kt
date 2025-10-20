@@ -1,7 +1,7 @@
 package namle.tutorial.gymtracer.data.repository
 
-import namle.tutorial.gymtracer.data.local.TestDao
-import namle.tutorial.gymtracer.data.local.TestEntity
+import namle.tutorial.gymtracer.data.local.dao.TestDao
+import namle.tutorial.gymtracer.data.local.entity.TestEntity
 import javax.inject.Inject
 import javax.inject.Singleton
 

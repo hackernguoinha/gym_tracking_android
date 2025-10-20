@@ -2,9 +2,14 @@ package namle.tutorial.gymtracer.data.local
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
+import namle.tutorial.gymtracer.data.local.dao.ExerciseDao
+import namle.tutorial.gymtracer.data.local.dao.TestDao
+import namle.tutorial.gymtracer.data.local.entity.ExerciseEntity
+import namle.tutorial.gymtracer.data.local.entity.TestEntity
 
-@Database(entities = [TestEntity::class], version = 1)
+@Database(entities = [TestEntity::class, ExerciseEntity::class], version = 2, exportSchema = true)
 abstract class AppDatabase: RoomDatabase() {
     abstract fun testDao(): TestDao
+    abstract fun exerciseDao(): ExerciseDao
 
 }

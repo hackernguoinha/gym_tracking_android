@@ -21,6 +21,7 @@ android {
 
     buildFeatures {
         viewBinding = true
+        buildConfig = true
     }
 
     buildTypes {
@@ -70,4 +71,7 @@ dependencies {
     implementation("com.google.dagger:hilt-android:$hilt_version")
     ksp("com.google.dagger:hilt-android-compiler:$hilt_version")
     implementation ("androidx.activity:activity-ktx:1.9.2")
+
+    implementation(files("libs/SQLiteStudioRemote.jar"))
+
 }

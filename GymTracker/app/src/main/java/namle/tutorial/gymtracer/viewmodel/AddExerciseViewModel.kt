@@ -1,4 +1,4 @@
-package namle.tutorial.gymtracer.ui.main
+package namle.tutorial.gymtracer.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
@@ -8,25 +8,24 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.cancel
 import kotlinx.coroutines.launch
-import namle.tutorial.gymtracer.data.local.TestEntity
+import namle.tutorial.gymtracer.data.local.entity.ExerciseEntity
+import namle.tutorial.gymtracer.data.local.entity.TestEntity
+import namle.tutorial.gymtracer.data.repository.ExerciseRepository
 import namle.tutorial.gymtracer.data.repository.TestRepository
 import javax.inject.Inject
 
 @HiltViewModel
-class MainViewModel @Inject constructor(private val repository: TestRepository) : ViewModel()  {
-    fun saveTest(name: String) {
+class AddExerciseViewModel @Inject constructor(private val repository: ExerciseRepository) : ViewModel()  {
+    fun saveExercise(a: String, b: String) {
         viewModelScope.launch {
-            repository.addTest(name)
+
+            repository.addExercise(ExerciseEntity(name = a, picture = b, note = a, muscleGroupId = 1, status = 3))
         }
     }
 
-    fun getAllTest(): LiveData<List<TestEntity>> {
+    fun getAllExercise(): LiveData<List<ExerciseEntity>> {
         return repository.getAllTest().asLiveData()
 
-    }
-
-    protected val handler = CoroutineExceptionHandler { _, exception ->
-        exception.printStackTrace()
     }
 
     override fun onCleared() {

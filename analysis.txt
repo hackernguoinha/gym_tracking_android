@@ -27,6 +27,7 @@ Database:
 	+ Note (text)
 	+ exercise (danh sách id Muscle-Group)
 - Exercise
+	+ Name
 	+ Picture
 	+ Note
 	+ id Muscle-Group
