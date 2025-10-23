@@ -2,7 +2,6 @@ package namle.tutorial.gymtracer.ui
 
 import android.os.Bundle
 import android.util.Log
-import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import dagger.hilt.android.AndroidEntryPoint
@@ -34,10 +33,10 @@ class MainActivity : AppCompatActivity() {
                         HomeFragment()
                     }
                     R.id.nav_calendar -> {
-                        HomeFragment()
+                        CalendarFragment()
                     }
                     R.id.nav_setting -> {
-                        HomeFragment()
+                        SettingFragment()
                     }
                     else -> null
                 }
