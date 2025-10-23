@@ -72,6 +72,8 @@ dependencies {
     ksp("com.google.dagger:hilt-android-compiler:$hilt_version")
     implementation ("androidx.activity:activity-ktx:1.9.2")
 
-    implementation(files("libs/SQLiteStudioRemote.jar"))
+    //UI
+    implementation("com.google.android.material:material:1.13.0")
+
 
 }
