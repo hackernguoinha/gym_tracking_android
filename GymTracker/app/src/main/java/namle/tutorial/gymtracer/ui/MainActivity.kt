@@ -2,6 +2,7 @@ package namle.tutorial.gymtracer.ui
 
 import android.os.Bundle
 import android.util.Log
+import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import dagger.hilt.android.AndroidEntryPoint
@@ -15,7 +16,7 @@ class MainActivity : AppCompatActivity() {
     private val viewModel: MainViewModel by viewModels()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        //enableEdgeToEdge()// full screen
+        enableEdgeToEdge()// full screen
         window.navigationBarColor = getColor(R.color.white)
         Log.d("MainActivity", "----------test--------------")
         binding = ActivityMainBinding.inflate(layoutInflater)

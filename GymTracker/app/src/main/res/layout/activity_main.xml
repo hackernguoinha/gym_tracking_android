@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     android:orientation="vertical">
 
     <FrameLayout
@@ -24,6 +25,9 @@
         app:itemBackground="@drawable/nav_item_background"
         style="@style/Widget.MyApp.BottomNavigationView"
         app:labelVisibilityMode="labeled">
-
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/colorBorder" />
     </com.google.android.material.bottomnavigation.BottomNavigationView>
 </LinearLayout >
