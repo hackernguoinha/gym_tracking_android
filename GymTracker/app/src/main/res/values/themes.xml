@@ -5,7 +5,13 @@
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
     </style>
 
-    <style name="Theme.GymTracer" parent="Base.Theme.GymTracer" />
+    <style name="Theme.GymTracer" parent="Base.Theme.GymTracer" >
+        <!-- màu label khi chưa focus -->
+        <item name="hintTextColor">@color/colorPrimary</item>
+
+        <!-- màu label khi focus -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+    </style>
 
     <style name="Widget.MyApp.BottomNavigationView" parent="Widget.Material3.BottomNavigationView">
         <item name="android:background">?attr/colorSurface</item>
@@ -16,5 +22,9 @@
         <item name="android:color">@android:color/transparent</item>
         <item name="android:shape">@null</item>
         <item name="android:gravity">top</item>
+    </style>
+    <style name="TextInputShape">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">12dp</item>
     </style>
 </resources>

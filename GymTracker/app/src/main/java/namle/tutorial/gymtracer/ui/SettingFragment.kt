@@ -1,11 +1,13 @@
 package namle.tutorial.gymtracer.ui
 
+import android.app.TimePickerDialog
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import namle.tutorial.gymtracer.databinding.FragmentSettingBinding
+import java.util.Calendar
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -42,7 +44,38 @@ class SettingFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        if(binding?.switchNotificationAlarm!!.isChecked){
+            binding!!.tilTime.isEnabled = true
+        } else {
+            binding!!.tilTime.isEnabled = false
+        }
 
+        binding!!.switchNotificationAlarm.setOnCheckedChangeListener { buttonView, isChecked ->
+            binding!!.tilTime.isEnabled = isChecked
+        }
+
+        binding!!.edtInputTime.setOnClickListener {
+            showTimePicker()
+        }
+
+    }
+
+    private fun showTimePicker() {
+        val calendar = Calendar.getInstance()
+        val hour = calendar.get(Calendar.HOUR_OF_DAY)
+        val minute = calendar.get(Calendar.MINUTE)
+
+        val timePicker = TimePickerDialog(
+            requireContext(),
+            { _, selectedHour, selectedMinute ->
+                val formatted = String.format("%02d:%02d", selectedHour, selectedMinute)
+                binding!!.edtInputTime.setText(formatted)
+            },
+            hour, minute, true // true = 24h, false = 12h format
+        )
+
+        timePicker.setTitle("Choose time")
+        timePicker.show()
     }
 
     override fun onDestroyView() {

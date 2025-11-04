@@ -4,4 +4,12 @@
     <string name="calendar_fragment_text">Calendar</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="setting_fragment_text">Setting</string>
+    <string name="setting_fragment_exercise">Exercise</string>
+    <string name="setting_fragment_muscle_group">Muscle group</string>
+    <string name="setting_fragment_height">Height (cm)</string>
+    <string name="setting_fragment_weight">Weight (kg)</string>
+    <string name="setting_fragment_save">Save</string>
+    <string name="setting_fragment_notification">Notification</string>
+    <string name="setting_fragment_time_start">Time start</string>
+    <string name="setting_fragment_choose_time">Choose time</string>
 </resources>
