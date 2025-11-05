@@ -12,4 +12,6 @@
     <string name="setting_fragment_notification">Notification</string>
     <string name="setting_fragment_time_start">Time start</string>
     <string name="setting_fragment_choose_time">Choose time</string>
+    <string name="muscle_name">Name</string>
+    <string name="muscle_group_name">Muscle group</string>
 </resources>

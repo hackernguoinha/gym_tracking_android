@@ -18,6 +18,7 @@
             android:layout_height="60dp"/>
 
         <LinearLayout
+            android:id="@+id/btn_muscle_group"
             android:layout_width="match_parent"
             android:layout_height="55dp"
             android:orientation="horizontal"

@@ -34,7 +34,7 @@ Database:
 	+ status
 - Muscle-Group
 	+ Picture
-	+ Note
+	+ Name
 	+ status
 - App-Status
 	+ Height

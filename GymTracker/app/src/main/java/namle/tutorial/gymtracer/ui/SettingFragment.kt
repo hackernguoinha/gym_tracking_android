@@ -46,6 +46,11 @@ class SettingFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        binding!!.btnMuscleGroup.setOnClickListener {
+            val intent = Intent(requireContext(), AddMuscleGroupActivity::class.java)
+            startActivity(intent)
+        }
+
         binding!!.btnExercise.setOnClickListener {
             val intent = Intent(requireContext(), AddExerciseActivity::class.java)
             startActivity(intent)
