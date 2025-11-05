@@ -13,6 +13,13 @@
         <item name="colorPrimary">@color/colorPrimary</item>
     </style>
 
+    <style name="SmallActivityTheme" parent="Theme.Material3.Light.Dialog">
+        <item name="android:windowCloseOnTouchOutside">true</item>
+        <item name="android:windowMinWidthMajor">90%</item>
+        <item name="android:windowMinWidthMinor">90%</item>
+        <item name="android:windowBackground">@drawable/bg_dialog_material</item>
+    </style>
+
     <style name="Widget.MyApp.BottomNavigationView" parent="Widget.Material3.BottomNavigationView">
         <item name="android:background">?attr/colorSurface</item>
         <item name="itemIconTint">@color/selector_nav_color</item>

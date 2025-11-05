@@ -1,6 +1,7 @@
 package namle.tutorial.gymtracer.ui
 
 import android.app.TimePickerDialog
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -44,6 +45,12 @@ class SettingFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        binding!!.btnExercise.setOnClickListener {
+            val intent = Intent(requireContext(), AddExerciseActivity::class.java)
+            startActivity(intent)
+        }
+
         if(binding?.switchNotificationAlarm!!.isChecked){
             binding!!.tilTime.isEnabled = true
         } else {

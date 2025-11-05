@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.AddExerciseActivity">
@@ -14,4 +15,4 @@
         android:text="Button"
         tools:layout_editor_absoluteX="153dp"
         tools:layout_editor_absoluteY="169dp" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
