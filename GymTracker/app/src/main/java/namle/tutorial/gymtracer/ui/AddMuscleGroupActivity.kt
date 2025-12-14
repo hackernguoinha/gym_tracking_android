@@ -15,6 +15,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import com.google.android.material.imageview.ShapeableImageView
 import dagger.hilt.android.AndroidEntryPoint
+import namle.tutorial.gymtracer.R
 import namle.tutorial.gymtracer.databinding.ActivityAddMuscleGroupBinding
 import namle.tutorial.gymtracer.viewmodel.AddMuscleGroupViewModel
 import java.io.File
@@ -23,6 +24,8 @@ import java.io.File
 class AddMuscleGroupActivity : AppCompatActivity() {
     private lateinit var binding: ActivityAddMuscleGroupBinding
     private val viewModel: AddMuscleGroupViewModel by viewModels()
+    private var uri: Uri? = null
+    private var imgName: String? = null
     private val TAG = "AddMuscleGroupActivity"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,14 +41,29 @@ class AddMuscleGroupActivity : AppCompatActivity() {
         binding.imgMuscle.setOnClickListener {
             openGallery()
         }
+        binding.btnSave.setOnClickListener {
+            imgName = "image${System.currentTimeMillis()}.jpg"
+            viewModel.saveData(imgName, binding.edtName.text.toString())
+        }
+
+        viewModel.saveStatusEvent.observe(this) { stt ->
+            if (stt == "SUCC"){
+                uri?.let { saveImageToInternalStorage(it) }
+            }
+        }
     }
+
 
     private val pickImageLauncher = registerForActivityResult(
         ActivityResultContracts.StartActivityForResult()
     ) { result ->
         if (result.resultCode == Activity.RESULT_OK) {
-            val uri: Uri? = result.data?.data
-            uri?.let { saveImageToInternalStorage(it) }
+            uri = result.data?.data
+            // Hiển thị ảnh đã lưu bằng Glide
+            Glide.with(this)
+                .load(uri)
+                .error(R.drawable.icon_error)
+                .into(binding.imgMuscle)
         }
     }
 
@@ -59,7 +77,7 @@ class AddMuscleGroupActivity : AppCompatActivity() {
     private fun saveImageToInternalStorage(selectedUri: Uri) {
         try {
             // Tạo file đích trong thư mục nội bộ app
-            val file = File(filesDir, "image${System.currentTimeMillis()}.jpg")
+            val file = File(filesDir, imgName)
 
             // Sao chép dữ liệu
             contentResolver.openInputStream(selectedUri)?.use { input ->
@@ -67,12 +85,6 @@ class AddMuscleGroupActivity : AppCompatActivity() {
                     input.copyTo(output)
                 }
             }
-
-            // Hiển thị ảnh đã lưu bằng Glide
-            Glide.with(this)
-                .load(file)
-                .into(binding.imgMuscle)
-
         } catch (e: Exception) {
             e.printStackTrace()
         }
