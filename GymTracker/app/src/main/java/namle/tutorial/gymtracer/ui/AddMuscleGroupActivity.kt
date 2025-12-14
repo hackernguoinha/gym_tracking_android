@@ -18,6 +18,7 @@ import com.google.android.material.imageview.ShapeableImageView
 import dagger.hilt.android.AndroidEntryPoint
 import namle.tutorial.gymtracer.R
 import namle.tutorial.gymtracer.databinding.ActivityAddMuscleGroupBinding
+import namle.tutorial.gymtracer.utils.ToastUtil
 import namle.tutorial.gymtracer.viewmodel.AddMuscleGroupViewModel
 import java.io.File
 
@@ -54,10 +55,10 @@ class AddMuscleGroupActivity : AppCompatActivity() {
         viewModel.saveStatusEvent.observe(this) { stt ->
             if (stt == "SUCC"){
                 uri?.let { saveImageToInternalStorage(it) }
-                Toast.makeText(this, "Add Muscle Success!", Toast.LENGTH_SHORT).show()
+                ToastUtil.showSuccess(this, "Add Muscle Success!")
                 finish()
             } else {
-                Toast.makeText(this, "Name & picture not must null", Toast.LENGTH_SHORT).show()
+                ToastUtil.showFail(this, "Name & picture not must null")
             }
         }
     }
