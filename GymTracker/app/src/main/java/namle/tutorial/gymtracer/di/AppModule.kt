@@ -20,7 +20,10 @@ object AppModule {
     @Provides
     @Singleton
     fun provideDatabase(@ApplicationContext context: Context): AppDatabase =
-        Room.databaseBuilder(context, AppDatabase::class.java, "gym_tracer_db").build()
+        Room.databaseBuilder(context, AppDatabase::class.java, "gym_tracer_db")
+            //.fallbackToDestructiveMigration() ROOM hơi khó chịu chỗ version DB, thêm cột mới nhớ migrate, nếu quên dùng cái này để reset DB, và phải luôn tăng ver DB
+            //.addMigrations(AppDatabase.MIGRATION_1_3/*, AppDatabase.MIGRATION_1_4*/)
+            .build()
 
     @Provides
     fun provideTestDao(db: AppDatabase): TestDao = db.testDao()
