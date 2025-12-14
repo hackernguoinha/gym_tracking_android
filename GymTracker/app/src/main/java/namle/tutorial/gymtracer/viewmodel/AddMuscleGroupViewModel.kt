@@ -45,10 +45,15 @@ class AddMuscleGroupViewModel @Inject constructor(private val repository: Muscle
     }
 
     fun saveData(imgName: String?, name: String?){
-        viewModelScope.launch {
-            repository.add(MuscleGroupEntity(name = name.toString(), picture = imgName.toString(), status = 1))
+        if(imgName.isNullOrEmpty() || name.isNullOrEmpty()){
+            _saveStatusEvent.value = "FAIL"
+        } else {
+            viewModelScope.launch {
+                repository.add(MuscleGroupEntity(name = name, picture = imgName, status = 1))
+            }
+            _saveStatusEvent.value = "SUCC"
         }
-        _saveStatusEvent.value = "SUCC"
+
     }
 
     override fun onCleared() {

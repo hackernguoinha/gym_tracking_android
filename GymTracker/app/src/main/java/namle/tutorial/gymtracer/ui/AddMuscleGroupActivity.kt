@@ -7,6 +7,7 @@ import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.Window
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.contract.ActivityResultContract
 import androidx.activity.result.contract.ActivityResultContracts
@@ -42,13 +43,21 @@ class AddMuscleGroupActivity : AppCompatActivity() {
             openGallery()
         }
         binding.btnSave.setOnClickListener {
-            imgName = "image${System.currentTimeMillis()}.jpg"
+            if(uri == null){
+                imgName = null
+            } else {
+                imgName = "image${System.currentTimeMillis()}.jpg"
+            }
             viewModel.saveData(imgName, binding.edtName.text.toString())
         }
 
         viewModel.saveStatusEvent.observe(this) { stt ->
             if (stt == "SUCC"){
                 uri?.let { saveImageToInternalStorage(it) }
+                Toast.makeText(this, "Add Muscle Success!", Toast.LENGTH_SHORT).show()
+                finish()
+            } else {
+                Toast.makeText(this, "Name & picture not must null", Toast.LENGTH_SHORT).show()
             }
         }
     }
